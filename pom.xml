@@ -1870,7 +1870,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
                                                 <artifactId>xstream</artifactId>
 
-                                                <version>1.4.18</version>
+                                                <version>1.4.19</version>
 
                                 </dependency>
 
