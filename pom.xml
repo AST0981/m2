@@ -1086,7 +1086,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
  
 
-                     <version>1.67</version>
+                     <version>1.61</version>
 
  
 
@@ -1840,7 +1840,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
                                                 <artifactId>commons-io</artifactId>
 
-                                                <version>2.7</version>
+                                                <version>2.4</version>
 
                                 </dependency>
 
@@ -1870,7 +1870,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
                                                 <artifactId>xstream</artifactId>
 
-                                                <version>1.4.19</version>
+                                                <version>1.4.18</version>
 
                                 </dependency>
 
@@ -2370,7 +2370,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
             <artifactId>jackson-databind</artifactId>
 
-            <version>2.12.6.1</version>
+            <version>2.10.5.1</version>
 
         </dependency>
 
@@ -2432,7 +2432,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
             <artifactId>bcprov-jdk15on</artifactId>
 
-            <version>1.67</version>
+            <version>1.61</version>
 
         </dependency>  
 
@@ -2492,7 +2492,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
         <artifactId>spring-core</artifactId>
 
-        <version>5.2.22.RELEASE</version>
+        <version>5.2.16.RELEASE</version>
 
         </dependency>
 
@@ -2658,7 +2658,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
             <artifactId>jetty-webapp</artifactId>
 
-            <version>9.4.44.v20210927</version>
+            <version>9.4.41.v20210516</version>
 
         </dependency>
 
@@ -3178,4 +3178,201 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
                                                                                                 <!-- we need to pass envName value as a maven variable (e.g. -Denvironment.name=dev)   -->                                
 
                                                                                                                 <name>layer-model/${environment.name}/${project.artifactId}</name>
-<
+
+                                                                                                                <build>
+
+                                                                                                                                <dockerFileDir>${project.basedir}</dockerFileDir>
+
+                                                                                                                                <assembly>
+
+                                                                                                                                                <descriptorRef>artifact</descriptorRef>
+
+                                                                                                                                </assembly>
+
+                                                                                                                                <tags>${project.version}-0</tags>
+
+                                                                                                                </build>
+
+                                                                                                </image>
+
+                                                                                </images>
+
+                                                                </configuration>
+
+                                                                <executions>
+
+                                                                                <execution>
+
+                                                                                                <id>docker:build</id>
+
+                                                                                                <phase>deploy</phase>
+
+                                                                                                <goals>
+
+                                                                                                                <goal>build</goal>
+
+                                                                                                </goals>
+
+                                                                                </execution>
+
+                                                                </executions>
+
+                                                </plugin>
+
+                                                <plugin>
+
+                                                                <groupId>org.apache.maven.plugins</groupId>
+
+                                                                <artifactId>maven-release-plugin</artifactId>
+
+                                                                <version>3.0.0-M1</version>
+
+                                                                <configuration>
+
+                                                                                <tagNameFormat>T@{project.version}</tagNameFormat>
+
+                                                                </configuration>
+
+                                                </plugin>
+
+                                                <plugin>
+
+                                                                <groupId>org.sonatype.plugins</groupId>
+
+                                                                <artifactId>nexus-staging-maven-plugin</artifactId>
+
+                                                                <version>1.5.1</version>
+
+                                                                <executions>
+
+                                                                                <execution>
+
+                                                                                                <id>default-deploy</id>
+
+                                                                                                <phase>deploy</phase>
+
+                                                                                                <goals>
+
+                                                                                                                <goal>deploy</goal>
+
+                                                                                                </goals>
+
+                                                                                </execution>
+
+                                                                </executions>
+
+                                                                <configuration>
+
+                                                                                <serverId>nexus</serverId>
+
+                                                                                <nexusUrl>http://sh-repo01.sh.shaam.gov.il/</nexusUrl>
+
+                                                                                <skipStaging>true</skipStaging>
+
+                                                                </configuration>
+
+                                                </plugin>
+
+                                                <plugin>
+
+                                                                <groupId>org.springframework.boot</groupId>
+
+                                                                <artifactId>spring-boot-maven-plugin</artifactId>
+
+                                                                <configuration>
+
+                                                                                <layout>JAR</layout>
+
+                                                                </configuration>
+
+                                                                <executions>
+
+                                                                                <execution>
+
+                                                                                                <goals>
+
+                                                                                                                <goal>repackage</goal>
+
+                                                                                                </goals>
+
+                                                                                </execution>
+
+                                                                </executions>
+
+                                                </plugin>
+
+                                             
+ 
+</plugins>
+</build>
+
+
+<profiles>
+<profile>
+<id>production</id>
+<build>
+<plugins>
+<plugin>
+<groupId>com.vaadin</groupId>
+<artifactId>vaadin-maven-plugin</artifactId>
+<version>${vaadin.version}</version>
+<executions>
+<execution>
+<id>frontend</id>
+<phase>compile</phase>
+<goals>
+<goal>prepare-frontend</goal>
+<goal>build-frontend</goal>
+</goals>
+<configuration>
+<productionMode>true</productionMode>
+</configuration>
+</execution>
+</executions>
+</plugin>
+</plugins>
+</build>
+</profile>
+<profile>
+<id>native</id>
+<properties>
+<repackage.classifier>exec</repackage.classifier>
+<native-buildtools.version>0.9.11</native-buildtools.version>
+</properties>
+<dependencies>
+<dependency>
+<groupId>org.junit.platform</groupId>
+<artifactId>junit-platform-launcher</artifactId>
+<scope>test</scope>
+</dependency>
+</dependencies>
+<build>
+<plugins>
+<plugin>
+<groupId>org.graalvm.buildtools</groupId>
+<artifactId>native-maven-plugin</artifactId>
+<version>${native-buildtools.version}</version>
+<extensions>true</extensions>
+<executions>
+<execution>
+<id>test-native</id>
+<phase>test</phase>
+<goals>
+<goal>test</goal>
+</goals>
+</execution>
+<execution>
+<id>build-native</id>
+<phase>package</phase>
+<goals>
+<goal>build</goal>
+</goals>
+</execution>
+</executions>
+</plugin>
+</plugins>
+</build>
+</profile>
+</profiles>
+
+</project>
