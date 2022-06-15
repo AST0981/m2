@@ -1086,7 +1086,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
  
 
-                     <version>1.61</version>
+                     <version>1.67</version>
 
  
 
@@ -2432,7 +2432,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/x
 
             <artifactId>bcprov-jdk15on</artifactId>
 
-            <version>1.61</version>
+            <version>1.67</version>
 
         </dependency>  
 
