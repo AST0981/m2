@@ -2407,7 +2407,7 @@
 
             <artifactId>tomcat-embed-websocket</artifactId>
 
-            <version>8.5.41</version>
+            <version>8.5.79</version>
 
             <exclusions>
 
