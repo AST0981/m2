@@ -2489,7 +2489,7 @@
 
         <artifactId>spring-core</artifactId>
 
-        <version>5.2.22.RELEASE</version>
+        <version>5.3.20</version>
 
         </dependency>
 
