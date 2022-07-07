@@ -2595,7 +2595,7 @@
 
             <artifactId>jetty-server</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
