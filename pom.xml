@@ -2511,7 +2511,7 @@
 
             <artifactId>jetty-client</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
@@ -2535,7 +2535,7 @@
 
             <artifactId>jetty-http</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
@@ -2547,7 +2547,7 @@
 
             <artifactId>jetty-io</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
@@ -2583,7 +2583,7 @@
 
             <artifactId>jetty-security</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
@@ -2595,7 +2595,7 @@
 
             <artifactId>jetty-server</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
@@ -2619,7 +2619,7 @@
 
             <artifactId>jetty-servlets</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>10.0.10</version>
 
         </dependency>
 
@@ -2715,7 +2715,7 @@
 
             <artifactId>websocket-client</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>9.4.47.v20220610</version>
 
         </dependency>
 
@@ -2739,7 +2739,7 @@
 
             <artifactId>websocket-server</artifactId>
 
-            <version>9.4.41.v20210516</version>
+            <version>9.4.47.v20220610</version>
 
         </dependency>
 
