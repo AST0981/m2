@@ -1330,7 +1330,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 			<artifactId>camunda-bpm-spring-boot-starter-webapp-core</artifactId>
 
-			<version>3.2.0</version>
+			<version>7.19.0</version>
 
 		</dependency>
 
